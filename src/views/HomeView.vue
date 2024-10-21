@@ -6,6 +6,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import SingleProject from '@/components/SingleProject.vue';
 export default {
@@ -32,3 +33,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.home {
+  width: 500px;
+}
+</style>

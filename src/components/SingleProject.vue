@@ -6,7 +6,9 @@
       </div>
       <div>
         <span class="material-icons" @click="deleteProject">delete</span>
-        <span class="material-icons">edit</span>
+        <router-link :to="{ name: 'EditProject', params: { id: project.id } }">
+          <span class="material-icons">edit</span>
+        </router-link>
         <span class="material-icons" @click="completeProject">done</span>
       </div>
     </div>
@@ -59,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .project {
   width: 100%;
   padding: 20px;
@@ -90,6 +92,10 @@ span {
 
 span:hover {
   color: #777;
+}
+
+a:hover {
+  background: none
 }
 
 .complete {

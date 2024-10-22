@@ -48,12 +48,12 @@ export default {
           }
         )
       })
-      .then(() => {
-        this.$emit("complete", this.project.id);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      })
+        .then(() => {
+          this.$emit("complete", this.project.id);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        })
     }
   }
 }
@@ -93,6 +93,6 @@ span:hover {
 }
 
 .complete {
-  border-left-color: green;
+  border-left-color: #00ce89;
 }
 </style>

@@ -5,7 +5,7 @@
         <input type="text" v-model="title">
         <label>Project Detail</label>
         <textarea cols="30" rows="10" v-model="detail"></textarea>
-        <button>Update Project</button>
+        <button @click="updateProject">Update Project</button>
     </form>
 </template>
 
@@ -25,11 +25,30 @@ export default {
             })
             .then((project) => {
                 this.title = project.title,
-                this.detail = project.detail
+                    this.detail = project.detail
             })
             .catch((err) => {
                 console.log(err.message);
             });
+    },
+    methods: {
+        updateProject() {
+            fetch("http://localhost:3000/projects/" + this.id, {
+                method: "PATCH",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        title: this.title,
+                        detail: this.detail
+                    }
+                )
+            })
+                .then(() => {
+                    this.$router.push("/");
+                });
+        }
     }
 }
 </script>
